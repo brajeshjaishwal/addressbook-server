@@ -97,7 +97,7 @@ const GetContact = async function({id}) {
 }
 const AddContact = async function({user, name, email, phone, job, group, active, starred }) {
     try{
-        const temp = await new Contact({ user, name, email, phone, group, active, starred }).save();
+        const temp = await new Contact({ user, name, email, phone, job, group, active, starred }).save();
         return temp
     }catch(Error) {
         throw Error
@@ -106,7 +106,7 @@ const AddContact = async function({user, name, email, phone, job, group, active,
 
 const EditContact = async function({id, user, name, email, phone, job, group, active, starred }) {
     try {
-        const temp = await Contact.findOneAndUpdate(id, {user, name, email , phone,group, active, starred})
+        const temp = await Contact.findOneAndUpdate(id, {user, name, email , phone, job, group, active, starred})
         return temp
     }catch(Error) {
         throw Error

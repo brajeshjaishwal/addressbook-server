@@ -17,6 +17,7 @@ const getGroupList = async (req, res) => {
                                 contacts: []
                             }
             let tempContacts = await GetContacts({user: user._id, group: g._id})
+            tempContacts.forEach(c => c.groupname = tempGroup.name)
             tempGroup.contacts = tempContacts
             tempGroup.total = tempContacts.length
             groupsWithContacts.push(tempGroup)

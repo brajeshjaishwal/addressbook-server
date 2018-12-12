@@ -31,8 +31,15 @@ const ContactSchema = new Schema({
         type: String,
         default: ''
     },
+    groupname: {
+        type:String,
+        default: ''
+    },
     //social accounts e.g. facebook, linkedin and etc.
-    photo: String,              //photo url
+    photo: {
+        type: String,              //photo url
+        default: ''
+    },
     starred: {
         type: Boolean,           //important
         default: false
