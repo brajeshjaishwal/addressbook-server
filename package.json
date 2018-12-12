@@ -1,0 +1,58 @@
+{
+  "name": "contactmanager",
+  "version": "1.0.0",
+  "description": "contact manager server",
+  "main": "server.js",
+  "author": "brajesh jaishwal",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "cluster": "^0.7.7",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "helmet": "^3.15.0",
+    "http": "^0.0.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.3.15",
+    "mongoose-type-email": "^1.0.10",
+    "morgan": "^1.9.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^6.0.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.83.0",
+    "validator": "^10.9.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "should": "^13.2.3",
+    "supertest": "^3.3.0"
+  },
+  "scripts": {
+    "start-1": "react-scripts start",
+    "start": "node server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
