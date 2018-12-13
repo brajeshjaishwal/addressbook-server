@@ -1,4 +1,4 @@
-const { AddGroup, GetGroups, GetContacts, EditGroup, ActivateGroup, DeleteGroup } = require('../db/index')
+const { AddGroup, GetGroups, GetGroup, GetContacts, EditGroup, ActivateGroup, DeleteGroup } = require('../db/index')
 
 const getGroupList = async (req, res) => {
     try {
@@ -50,11 +50,20 @@ const editGroup = async (req, res) => {
         const { name, active } = req.body
         const user = req.user
         if(!user) throw Error("You are not logged in.")
-        let temp = name ?
-                    await EditGroup({id: groupid, name}) :
-                    await ActivateGroup({id: groupid, active})
+        let old = await GetGroup({id: groupid})
+        let temp = null
+        if(name !== old.name)
+            temp = await EditGroup({id: groupid, name})
+        if(active !== old.active) {
+            temp = await ActivateGroup({id: groupid, active})
+        }
 
-        let group = { id: temp._id, name: temp.name, active: temp.active, contacts: [] }
+        let group = temp !== null? 
+            //changed either name or activation
+            { id: temp._id, name: temp.name, active: temp.active, contacts: [] } :
+            //nothing changed
+            { id: old._id, name: old.name, active: old.active, contacts: [] }
+
 
         //fetch updated contact items
         let tempContacts = await GetContacts({user: user._id, group: group.id})
