@@ -31,7 +31,9 @@ const removeContact = async (req, res) => {
     try{
         let user = req.user
         if(!user) throw Error("You are not logged in.")
-        let contact = await DeleteContact({ id: req.params.contactid })
+        let { contactid } = req.params
+        let temp = await DeleteContact({ id: contactid })
+        let contact = temp
         return res.send({ contact })
     }catch(Error) {
         return res.send({ contact: null, message: Error.message})

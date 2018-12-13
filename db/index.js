@@ -115,7 +115,7 @@ const EditContact = async function({id, user, name, email, phone, job, group, ac
 
 const DeleteContact = async function({id}) {
     try {
-        const temp = await Contact.findOneAndDelete({id})
+        const temp = await Contact.findByIdAndRemove(id)
         return temp
     }catch(Error) {
         throw Error

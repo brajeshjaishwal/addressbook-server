@@ -37,6 +37,7 @@ const createGroup = async (req, res) => {
         let temp = await AddGroup({user: user._id, name})
 
         let group = { id: temp._id, name: temp.name, contacts: [], active: temp.active }
+        group.total = 0
         return res.send({ group })
     } catch (Error) {
         return res.send({ group: null, message: Error.message})
