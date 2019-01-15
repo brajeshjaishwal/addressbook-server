@@ -134,7 +134,7 @@ const AddGroup = async function({user, name }) {
 //to change the active field of a group
 const ActivateGroup = async function({id, active}) {
     try {
-        let temp = await Group.findOneAndUpdate(id, { active })
+        let temp = await Group.findByIdAndUpdate(id, { active })
         //todo change active fields of all the associated contacts
         await Contact.updateMany({group: id}, {active})
         return temp
