@@ -146,7 +146,7 @@ const ActivateGroup = async function({id, active}) {
 //just to change the name of a group
 const EditGroup = async function({id, name}) {
     try {
-        const temp = await Group.findOneAndUpdate(id, { name })
+        const temp = await Group.findByIdAndUpdate(id, { name })
         return temp
     }catch(Error) {
         throw Error
